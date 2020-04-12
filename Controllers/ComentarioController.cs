@@ -50,15 +50,15 @@ namespace proyecto_final.Controllers
                     }
                 }
 
-                [HttpPut("{id_com}")]
+                [HttpPut("{id}")]
                 [ProducesResponseType(StatusCodes.Status201Created)]
                 [ProducesResponseType(StatusCodes.Status400BadRequest)]
-                public IActionResult ActualizarComentario(Comentarios c,int id_com)
+                public IActionResult ActualizarComentario(Comentarios c,int id)
                 {
                         using(var context = new blogContext())
                         {
                             var cActualizar = context.Comentarios.Single(x=>x.id_com==c.id_com);
-                                                        
+                            
                             cActualizar.t_com     = c.t_com;
                             cActualizar.comentario = c.comentario;                            
 
